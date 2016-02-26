@@ -1,0 +1,9 @@
+[Core]
+Name = Quiz
+Module = quiz
+
+[Python]
+Version = 2+
+
+[Documentation]
+Description = Err Trivia Quiz
