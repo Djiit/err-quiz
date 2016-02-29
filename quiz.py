@@ -64,10 +64,13 @@ class QuizPlugin(BotPlugin):
 
     def restart_timer(self):
         """Cancel old timer, create a new thread, start the new Timer."""
+        if not self['playing']:
+            return
+
+        self.log.debug('Restarting timer for question')
         self.timer.cancel()
         self.timer = Timer(self.config['QUESTION_TIMEOUT'], self.next_question)
         self.timer.start()
-        self.log.warning('restarted timer')
         return
 
     def broadcast(self, mess):
@@ -116,7 +119,6 @@ class QuizPlugin(BotPlugin):
         self['answered'] = False
         self.draw_question()
         self.ask_question()
-        self.log.warning('finished new question')
         self.restart_timer()
         return
 
