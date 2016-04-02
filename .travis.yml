@@ -10,7 +10,7 @@ install:
   - pip install -q errbot pytest pytest-pep8 pytest-cov coveralls --use-wheel
 
 script:
-  - py.test --pep8 --cov quiz
+  - py.test --cov quiz
 
 after_success:
   - coveralls
